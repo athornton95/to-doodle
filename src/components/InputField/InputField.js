@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { PlusCircleIcon } from '@heroicons/react/solid'
 import { addTodo, addText, editAddTodo } from '../../redux/action/todo.action';
 
 const InputField = (props) => {
@@ -14,14 +15,30 @@ const InputField = (props) => {
         value: props.text,
         selected: props.selected
       }) 
-    } else {
+    } else if (props.text !== '') {
       props.addTodo(props.text);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder='input text' type='text' name='to-do' value={props.text} onChange={handleChange}/>
+      <div className="mt-1 relative rounded-md shadow-sm">
+        <input
+          type="text"
+          name='to-do'
+          className="w-full border border-gray-400 rounded-md p-4 pr-14 relative"
+          value={props.text}
+          placeholder='Add to-doodle...'
+          onChange={handleChange}
+        />
+        <button
+          className='ml-6 absolute top-3.5 right-3.5'
+          type='button'
+          onClick={handleSubmit}
+        >
+          <PlusCircleIcon className={`h-8 w-8 ${props.text !== '' ? 'text-blue-600 hover:text-blue-700' : 'text-gray-400'}`} />
+        </button>
+      </div>
     </form>
   );
 };

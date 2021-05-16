@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Todo } from '..';
 
 const TodosList = ({ todos }) => (
-  <div>
+  <div className='pt-6'>
     {todos.map((todo, i) => <Todo todo={todo} uid={i} key={i} />)}
   </div>
 );
