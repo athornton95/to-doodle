@@ -1,27 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../../redux/action/addTodo.action';
+import { addTodo, addText, editAddTodo } from '../../redux/action/todo.action';
 
 const InputField = (props) => {
-  const [toDo, setToDo] = useState('');
-
   const handleChange = (e) => {
-    setToDo(e.target.value);
-  }
+    props.addText(e.target.value);
+  };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addTodo(toDo);
-  }
+    if ( props.selected || props.selected === 0) {
+      props.editAddTodo({
+        value: props.text,
+        selected: props.selected
+      }) 
+    } else {
+      props.addTodo(props.text);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder='input text' type='text' name='to-do' onChange={handleChange}/>
+      <input placeholder='input text' type='text' name='to-do' value={props.text} onChange={handleChange}/>
     </form>
   );
 };
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: todo => dispatch(addTodo(todo))
+  addTodo: todo => dispatch(addTodo(todo)),
+  addText: value => dispatch(addText(value)),
+  editAddTodo: obj => dispatch(editAddTodo(obj))
 })
-export default connect(null, mapDispatchToProps)(InputField);
+
+const mapStateToProps = state => ({
+  text: state.text,
+  selected: state.selected
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputField);
