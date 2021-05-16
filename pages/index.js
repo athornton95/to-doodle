@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import styles from '../styles/Home.module.css';
-import { InputField, TodosList } from '../components';
+import { Container, InputField, TodosList } from '../components';
 import { connect } from 'react-redux';
 import { deleteAll, persistTodos } from '../redux/action/todo.action';
 
@@ -12,19 +11,20 @@ const Home = ({ deleteAll, persistTodos }) => {
   }, [persistTodos]);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>To Doodle</title>
         <meta name="description" content="An app to help keep track of daily art projects" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <main className={styles.main}>
-          <h1>app</h1>
-          <InputField />
-          <TodosList />
-          <div>
-            <button onClick={() => deleteAll()}>Delete All</button>
-          </div>
+        <main>
+          <Container>
+            <InputField />
+            <TodosList />
+            <div>
+              <button onClick={() => deleteAll()}>Delete All</button>
+            </div>
+          </Container>
         </main>
     </div>
   );
