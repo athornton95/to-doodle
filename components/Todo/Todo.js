@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deleteTodo, editTodo } from '../../redux/action/todo.action';
+import { editTodo, deleteTodo } from '../../redux/action/todo.action';
 
 const Todo = ({ todo, uid, deleteTodo, editTodo, selected, text }) => (
   <div>      

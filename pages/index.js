@@ -18,7 +18,6 @@ const Home = ({ deleteAll, persistTodos }) => {
         <meta name="description" content="An app to help keep track of daily art projects" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Provider store={store}> */}
         <main className={styles.main}>
           <h1>app</h1>
           <InputField />
@@ -27,7 +26,6 @@ const Home = ({ deleteAll, persistTodos }) => {
             <button onClick={() => deleteAll()}>Delete All</button>
           </div>
         </main>
-      {/* </Provider> */}
     </div>
   );
 };

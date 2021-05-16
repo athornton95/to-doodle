@@ -17,7 +17,7 @@ export const addTodo = (state = initState, action) => {
     case 'ADD_TEXT':
       return {
         ...state,
-        text:action.payload
+        text: action.payload
       };
     case 'ADD_TODO':
       const todo_list = state.todos.concat(action.payload);
