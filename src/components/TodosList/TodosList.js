@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Todo } from '../../components';
+import { Todo } from '..';
 
 const TodosList = ({ todos }) => (
   <div>

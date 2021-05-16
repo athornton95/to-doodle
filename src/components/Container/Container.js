@@ -1,5 +1,5 @@
 const Container = (props) => (
-  <div>
+  <div className='container'>
     {props.children}
   </div>
 )
