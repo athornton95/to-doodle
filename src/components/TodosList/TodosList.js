@@ -10,5 +10,6 @@ const TodosList = ({ todos }) => (
 
 const mapStateToProps = state => ({
   todos: state.todos
-})
+});
+
 export default connect(mapStateToProps)(TodosList);

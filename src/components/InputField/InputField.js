@@ -10,7 +10,7 @@ const InputField = (props) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ( props.selected || props.selected === 0) {
+    if (props.selected || props.selected === 0) {
       props.editAddTodo({
         value: props.text,
         selected: props.selected
