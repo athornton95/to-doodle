@@ -5,10 +5,12 @@ import { Container, InputField, TodosList } from '../components';
 import { connect } from 'react-redux';
 import { deleteAll, persistTodos } from '../redux/action/todo.action';
 
-const Home = ({ deleteAll, persistTodos }) => {
+const Home = ({ deleteAll, persistTodos, todos }) => {
   useEffect(() => {
     persistTodos();
   }, [persistTodos]);
+  
+  console.log(todos);
 
   return (
     <div>
@@ -24,15 +26,17 @@ const Home = ({ deleteAll, persistTodos }) => {
               <h2 className='text-xl pb-8'>A space to document daily inspiration so as to not let it wander off.</h2>
               <InputField />
               <TodosList />
-              <div className='pt-8'>
-                <button
-                  type="button"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
-                  onClick={() => deleteAll()}
-                >
-                  Delete List
-                </button>
-              </div>
+              {todos.length > 0 && (
+                <div className='pt-8'>
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+                    onClick={() => deleteAll()}
+                  >
+                    Delete List
+                  </button>
+                </div>
+              )}
             </div>
           </Container>
         </main>
@@ -40,9 +44,13 @@ const Home = ({ deleteAll, persistTodos }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  todos: state.todos
+})
+
 const mapDispatchToProps = dispatch => ({
   deleteAll: obj => dispatch(deleteAll(obj)),
   persistTodos: obj => dispatch(persistTodos(obj))
 })
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
