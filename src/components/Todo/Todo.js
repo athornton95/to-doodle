@@ -10,9 +10,9 @@ const Todo = ({ todo, uid, deleteTodo, editTodo, selected, text }) => {
         <span className='text-gray-300 text-xs'>{uid + 1}</span>
         <p className='pl-4 text-lg'>{selected === uid ? text : todo}</p>
       </div>    
-      <div className='flex text-gray-500 ml-2'>
-        <PencilIcon onClick={() => editTodo(uid)} className='h-4 w-4'/>
-        <TrashIcon onClick={() => deleteTodo(uid)} className='ml-2 h-4 w-4'/>
+      <div className='flex ml-2'>
+        <PencilIcon onClick={() => editTodo(uid)} className='ml-2 h-4 w-4 cursor-pointer text-gray-500 hover:text-gray-600'/>
+        <TrashIcon onClick={() => deleteTodo(uid)} className='ml-2 h-4 w-4 cursor-pointer text-gray-500 hover:text-gray-600'/>
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ const Home = ({ deleteAll, persistTodos, todos }) => {
       </Head>
         <main className='h-screen'>
           <Container>
-            <div className='lg:w-6/12 mx-auto bg-white p-8 rounded-lg my-10'>
+            <div className='lg:w-6/12 mx-auto bg-white p-8 rounded-lg my-10 shadow-md'>
               <h1 className='text-4xl font-bold pb-2'>To Doodle</h1>
               <h2 className='text-xl pb-8'>A clean, digital space to document daily inspiration so as to not let it wander off.</h2>
               <InputField />
