@@ -32,11 +32,11 @@ const InputField = (props) => {
           onChange={handleChange}
         />
         <button
-          className='ml-6 absolute top-3.5 right-3.5'
+          className={`ml-6 absolute top-3.5 right-3.5 ${props.text !== '' ? 'text-blue-600 hover:text-blue-700' : 'text-gray-400 pointer-events-none'}`}
           type='button'
           onClick={handleSubmit}
         >
-          <PlusCircleIcon className={`h-8 w-8 ${props.text !== '' ? 'text-blue-600 hover:text-blue-700' : 'text-gray-400'}`} />
+          <PlusCircleIcon className='h-8 w-8'/>
         </button>
       </div>
     </form>

@@ -16,14 +16,14 @@ const Home = ({ deleteAll, persistTodos, todos }) => {
     <div>
       <Head>
         <title>To Doodle</title>
-        <meta name="description" content="An app to help keep track of daily art projects" />
+        <meta name="description" content="A space to keep track of daily musings" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <main className='h-screen'>
           <Container>
             <div className='lg:w-6/12 mx-auto bg-white p-8 rounded-lg my-10'>
-              <h1 className='text-4xl font-bold pb-2'>To-doodle List</h1>
-              <h2 className='text-xl pb-8'>A space to document daily inspiration so as to not let it wander off.</h2>
+              <h1 className='text-4xl font-bold pb-2'>To Doodle</h1>
+              <h2 className='text-xl pb-8'>A clean, digital space to document daily inspiration so as to not let it wander off.</h2>
               <InputField />
               <TodosList />
               {todos.length > 0 && (
